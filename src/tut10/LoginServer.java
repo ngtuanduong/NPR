@@ -9,15 +9,15 @@ import java.io.*;
 import javax.net.ssl.*;
 
 public class LoginServer {
-    private static final String CORRECT_USER_NAME = "thao";
-    private static final String CORRECT_PASSWORD = "hahaha";
+    private static final String CORRECT_USER_NAME = "duong";
+    private static final String CORRECT_PASSWORD = "123123";
     private SSLServerSocket serverSocket;
 
     // LoginServer constructor
     public LoginServer() throws Exception
     {
         System.setProperty("javax.net.ssl.keyStore", "./SSLStore");
-        System.setProperty("javax.net.ssl.keyStorePassword", "123456");
+        System.setProperty("javax.net.ssl.keyStorePassword", "123123");
         // SSLServerSocketFactory for building SSLServerSockets
         SSLServerSocketFactory socketFactory =
                 ( SSLServerSocketFactory )
@@ -30,7 +30,7 @@ public class LoginServer {
     // start server and listen for clients
     private void runServer()
     {
-        // perpetually listen for clients
+        // perpetually listen for client s
         while ( true ) {
             // wait for client connection and check login information
             try {

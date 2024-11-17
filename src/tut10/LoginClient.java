@@ -12,8 +12,8 @@ public class LoginClient {
     // LoginClient constructor
     public LoginClient()
     {
-        //System.setProperty("javax.net.ssl.trustStore","./SSLStore");
-//System.setProperty("javax.net.ssl.trustStorePassword", "123456");
+        System.setProperty("javax.net.ssl.trustStore","./SSLStore");
+        System.setProperty("javax.net.ssl.trustStorePassword", "123123");
         // open SSLSocket connection to server and send login
         try {
             // obtain SSLSocketFactory for creating SSLSockets
