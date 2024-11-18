@@ -4,6 +4,8 @@ package tut10;
 
 // Java core packages
 import java.io.*;
+import java.math.BigInteger;
+
 
 // Java extension packages
 import javax.net.ssl.*;
@@ -45,15 +47,26 @@ public class LoginServer {
                         new OutputStreamWriter(socket.getOutputStream() ) );
                 String userName = input.readLine();
                 String password = input.readLine();
+                boolean success = false;
                 if ( userName.equals( CORRECT_USER_NAME ) &&
                         password.equals( CORRECT_PASSWORD ) ) {
                     output.println( "Login successfully" );
-
+                    output.flush();
+                    success = true;
                 }
                 else {
                     output.println( "Login failed." );
                 }
+                if(success){
+                    while(true){
+                        String res = input.readLine();
+                        if(res.equals("QUIT")) break;
+                        BigInteger inputNumber = new BigInteger(res);
+                        output.println(inputNumber.pow(3));
+                        output.flush();
+                    }
 
+                }
                 // clean up streams and SSLSocket
                 output.close();
                 input.close();
