@@ -47,10 +47,11 @@ public class LoginServer {
                 String password = input.readLine();
                 if ( userName.equals( CORRECT_USER_NAME ) &&
                         password.equals( CORRECT_PASSWORD ) ) {
-                    output.println( "Welcome, " + userName );
+                    output.println( "Login successfully" );
+
                 }
                 else {
-                    output.println( "Login Failed." );
+                    output.println( "Login failed." );
                 }
 
                 // clean up streams and SSLSocket

@@ -4,6 +4,7 @@ package tut10;
 // LoginClient uses an SSLSocket to transmit fake login information to LoginServer.
 // Java core packages
 import java.io.*;
+import java.math.BigInteger;
 // Java extension packages
 import javax.swing.*;
 import javax.net.ssl.*;
@@ -40,6 +41,23 @@ public class LoginClient {
             // display response to user
             JOptionPane.showMessageDialog( null, response );
             // clean up streams and SSLSocket
+            if(response.equals("Login successfully")){
+                String inputNumber = JOptionPane.showInputDialog( null, "Enter a number:" );
+                while(!inputNumber.toUpperCase().equals("QUIT")) {
+                    try{
+                        Double.parseDouble(inputNumber);
+                        BigInteger number = new BigInteger(inputNumber);
+                        number = number.pow(3);
+                        JOptionPane.showMessageDialog(null, number);
+                        inputNumber = JOptionPane.showInputDialog(null, "Enter a number:");
+                    }catch(NumberFormatException e){
+                        JOptionPane.showMessageDialog( null, "Please enter a number." );
+                        inputNumber = JOptionPane.showInputDialog( null, "Enter a number:" );
+                    }
+
+                }
+                JOptionPane.showMessageDialog( null, "Goodbye" );
+            }
             output.close();
             input.close();
             socket.close();
